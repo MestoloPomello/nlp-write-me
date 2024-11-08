@@ -1,16 +1,17 @@
-import spacy
+import pandas as pd
+import re
 
+def preprocess_data(dataset_file, num_emails):
+    # Caricamento del dataset
+    df = pd.read_csv(dataset_file)
+    df = df.head(num_emails)
+    
+    # Estrazione del testo delle email
+    emails = df['message'].apply(clean_email_text)
+    return emails
 
-nlp = spacy.load("en_core_web_sm")
-
-
-def preprocess_email(email_text):
-    doc = nlp(email_text)
-    return [token.lemma_ for token in doc if not token.is_stop]
-
-
-def extract_entities(email_text):
-    doc = nlp(email_text)
-    entities = [(ent.text, ent.label_) for ent in doc.ents]
-    return entities
+def clean_email_text(text):
+    # Rimozione dei metadati delle email e normalizzazione
+    cleaned_text = re.sub(r"Message-ID:.*|Date:.*|From:.*|To:.*|Subject:.*|X-.*:.*", "", text)
+    return cleaned_text.strip()
 

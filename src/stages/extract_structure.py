@@ -1,12 +1,10 @@
 import re
 
-
 # Regex - ToDo - translate in english 
 greetings = r"\b(Ciao|Gentile|Egregio|Salve|Buongiorno|Buonasera)\b"
 closings = r"\b(Cordiali saluti|Distinti saluti|Un caro saluto|A presto|Cordiali|Saluti)\b"
 email_pattern = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b"
 phone_pattern = r"\b(\+?\d{1,3})?\s?(\(?\d{1,4}\)?)\s?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}\b"
-
 
 def extract_greetings_closings(email_text):
     greeting_match = re.search(greetings, email_text)
@@ -16,7 +14,6 @@ def extract_greetings_closings(email_text):
     closing = closing_match.group() if closing_match else None
     
     return greeting, closing
-
 
 def extract_signature(email_text):
     # Starting from the bottom, search for the latest matches for email addresses and phone numbers
