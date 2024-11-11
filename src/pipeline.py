@@ -1,13 +1,14 @@
 import sys
+import argparse
 from stages.preprocessing import preprocess_data
 from stages.clustering import cluster_sections
 from stages.classification import classify_sections
 from stages.evaluation import evaluate_clustering
 
-def main(dataset_file, num_emails):
+def main(dataset_file, num_emails, random_selection):
     # Step 1: Preprocessing
     print("Starting preprocessing...")
-    email_data = preprocess_data(dataset_file, num_emails)
+    email_data = preprocess_data(dataset_file, num_emails, random_selection)
     
     # Step 2: Clustering
     print("Clustering sections...")
@@ -24,11 +25,11 @@ def main(dataset_file, num_emails):
     print("Pipeline completed successfully.")
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: python pipeline.py <dataset_file> <num_emails>")
-        sys.exit(1)
-    
-    dataset_file = sys.argv[1]
-    num_emails = int(sys.argv[2])
-    main(dataset_file, num_emails)
+    parser = argparse.ArgumentParser(description="Process email dataset.")
+    parser.add_argument("dataset_file", type=str, help="Path to the CSV dataset file")
+    parser.add_argument("num_emails", type=int, help="Number of emails to process")
+    parser.add_argument("--random", action="store_true", help="Select emails randomly")
+
+    args = parser.parse_args()
+    main(args.dataset_file, args.num_emails, args.random)
 
