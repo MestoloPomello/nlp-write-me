@@ -4,23 +4,38 @@ from stages.preprocessing import preprocess_data
 from stages.clustering import cluster_sections
 from stages.classification import classify_sections
 from stages.evaluation import evaluate_clustering
+from results_handler import initialize
 
 def main(dataset_file, num_emails, random_selection):
+    # Initialization
+    print("[Initialization] Started")
+    initialize()
+
+    print("-----------------------------------------------------")
+
     # Step 1: Preprocessing
-    print("Starting preprocessing...")
+    print("[Preprocessing] Started")
     email_data = preprocess_data(dataset_file, num_emails, random_selection)
+
+    print("-----------------------------------------------------")
     
     # Step 2: Clustering
-    print("Clustering sections...")
+    print("[Clustering] Started")
     labels, vectorized_data = cluster_sections(email_data)
     
+    print("-----------------------------------------------------")
+
     # Step 3: Classification
-    print("Classifying sections...")
+    print("[Classification] Started")
     classifications = classify_sections(vectorized_data, labels)
     
+    print("-----------------------------------------------------")
+
     # Step 4: Evaluation
-    print("Evaluating clustering consistency...")
+    print("[Evaluation] Started")
     evaluate_clustering(vectorized_data, labels)
+
+    print("-----------------------------------------------------")
 
     print("Pipeline completed successfully.")
 
