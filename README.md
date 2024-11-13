@@ -6,5 +6,6 @@
 
 Execution: `python pipeline.py <dataset_file> <num_emails> [--random]`
 - `dataset_file`: path to the CSV dataset file
-- `num_emails`: how many emails to process
-- `--random`: if set, take random emails from the dataset instead of starting from the top
+- `--num_emails`: how many emails to process, defaults to 5
+- `--random_state`: random state for the steps that use it, defaults to a random value
+

@@ -8,5 +8,5 @@ def evaluate_clustering(X, labels):
 
     append_to_results(f"Silhouette Score: {score}")
     
-    print(f"Silhouette Score: {score}")
+    print(f"[Evaluation] Silhouette Score: {score}")
 

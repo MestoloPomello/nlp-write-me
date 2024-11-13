@@ -1,22 +1,14 @@
 import pandas as pd
 import re
-import random
-from results_handler import append_to_results
+from results_handler import append_to_results, get_random_state
 
-def preprocess_data(dataset_file, num_emails, random_selection):
+def preprocess_data(dataset_file, num_emails):
     # Dataset loading 
     print(f"[Preprocessing] Loading dataset: {dataset_file}")
     df = pd.read_csv(dataset_file)
 
-    # Select emails, randomly or sorted
-    if random_selection:
-        random_state = random.randint(1, 10000)
-        df = df.sample(n=num_emails, random_state=random_state)
-    else:
-        df = df.head(num_emails)
+    df = df.sample(n=num_emails, random_state=get_random_state())
 
-    append_to_results(f"Random State: {random_state}")
-    
     # Email text extraction
     emails = df['message'].apply(clean_email_text)
     # print(f"[Preprocessing] Cleaned emails: \n{"\n".join(emails)}")
