@@ -1,6 +1,0 @@
-[Initialization] Random State: 1807
-
-[Clustering] Labels: [1 0 1 1 2]
-
-[Evaluation] Silhouette Score: 0.0025886059104795528
-

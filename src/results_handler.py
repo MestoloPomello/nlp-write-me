@@ -8,7 +8,7 @@ results_file_path = ""
 random_state = -1
 
 
-def initialize(custom_random_state):
+def initialize(custom_random_state, num_emails):
     # Build file path
     project_root = os.path.abspath(
         os.path.join(os.path.dirname(__file__), "..")
@@ -31,22 +31,29 @@ def initialize(custom_random_state):
         global random_state
         random_state = random.randint(1, 10000)
 
-    full_output(stage="Initialization", text=f"Random State: {random_state}")
+    full_output(
+        stage="Initialization",
+        text=f"Number of emails: {num_emails} | Random State: {random_state}",
+        newline=True
+    )
 
     printf(f"[Initialization] Data will be saved to: /evaluations/{results_file_path.split("/evaluations/", 1)[1]}")
 
 
-def append_to_results(text):
+def append_to_results(text, newline=False):
     with open(results_file_path, "a") as file:
-        file.write(f"{text}\n\n")
+        str = f"{text}\n"
+        if newline is True:
+            str = str + "\n"
+        file.write(str)
         # file.write("------------------------------------------")
         # file.write("\n\n")
 
 
-def full_output(stage, text):
+def full_output(stage, text, newline=False):
     full_string = f"[{stage}] {text}"
     printf(full_string)
-    append_to_results(full_string)
+    append_to_results(full_string, newline)
 
 
 def get_random_state():

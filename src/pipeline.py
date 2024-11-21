@@ -10,7 +10,7 @@ from utils import printf
 def main(dataset_file, num_emails, custom_random_state):
     # Initialization
     printf("[Initialization] Started")
-    initialize(custom_random_state)
+    initialize(custom_random_state, num_emails)
 
     printf("-----------------------------------------------------")
 
@@ -22,19 +22,19 @@ def main(dataset_file, num_emails, custom_random_state):
 
     # Step 2: Clustering
     printf("[Clustering] Started")
-    labels, vectorized_data = cluster_sections(email_data)
+    results = cluster_sections(email_data)
 
     printf("-----------------------------------------------------")
 
     # Step 3: Classification
-    printf("[Classification] Started")
-    classify_sections(vectorized_data, labels)
+    # printf("[Classification] Started")
+    # results = classify_sections(vectorized_data, labels)
 
-    printf("-----------------------------------------------------")
+    # printf("-----------------------------------------------------")
 
     # Step 4: Evaluation
     printf("[Evaluation] Started")
-    evaluate_clustering(vectorized_data, labels)
+    evaluate_clustering(results)
 
     printf("-----------------------------------------------------")
 
