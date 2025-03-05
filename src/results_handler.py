@@ -34,17 +34,18 @@ def initialize(custom_random_state, num_emails):
     full_output(
         stage="Initialization",
         text=f"Number of emails: {num_emails} | Random State: {random_state}",
-        newline=True
+        newline=False
     )
 
-    printf(f"[Initialization] Data will be saved to: /evaluations/{results_file_path.split("/evaluations/", 1)[1]}")
+    printf(f"results_file_path", results_file_path)
+    printf(f"[Initialization] Data will be saved to: /evaluations/{results_file_path.split("\\evaluations\\", 1)[1]}")
 
 
 def append_to_results(text, newline=False):
     with open(results_file_path, "a") as file:
         str = f"{text}\n"
         if newline is True:
-            str = str + "\n"
+            str = "\n" + str
         file.write(str)
         # file.write("------------------------------------------")
         # file.write("\n\n")

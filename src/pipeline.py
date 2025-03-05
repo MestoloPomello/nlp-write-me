@@ -1,8 +1,10 @@
 import argparse
 from results_handler import initialize
-from stages.preprocessing import preprocess_data
+# from stages.preprocessing_enron import preprocess_data, extract_bodies
+from stages.preprocessing_nigeria import preprocess_data
+from stages.topic_modeling import topic_modeling, assign_topics
 from stages.clustering import cluster_sections
-from stages.classification import classify_sections
+from stages.classification import classify_email_dataset
 from stages.evaluation import evaluate_clustering
 from utils import printf
 
@@ -18,17 +20,39 @@ def main(dataset_file, num_emails, custom_random_state):
     printf("[Preprocessing] Started")
     email_data = preprocess_data(dataset_file, num_emails)
 
+    print("email_data\n", email_data)
+    # email_bodies = extract_bodies(email_data)
+
     printf("-----------------------------------------------------")
+
+    # printf("[Topic Modeling] Started")
+    # topics, lda, X = topic_modeling(email_bodies, n_topics=5)
+
+    # printf("[Topic Modeling] Assigning topics to emails")
+    # assigned_topics = assign_topics(lda, X)
+
+    # printf("\nTop topics identified:")
+    # for idx, topic in enumerate(topics):
+    #     printf(f"Topic {idx}: {', '.join(topic)}")
+
+    # printf("\nEmail-to-Topic Mapping:")
+    # for i, topic in enumerate(assigned_topics):
+    #     printf(f"Email {i+1}: Topic {topic}")
 
     # Step 2: Clustering
-    printf("[Clustering] Started")
-    results = cluster_sections(email_data)
+    # printf("[Clustering] Started")
+    # results = cluster_sections(email_data)
 
-    printf("-----------------------------------------------------")
+    # printf("-----------------------------------------------------")
 
     # Step 3: Classification
-    # printf("[Classification] Started")
+    printf("[Classification] Started")
     # results = classify_sections(vectorized_data, labels)
+    results = classify_email_dataset(email_data)
+
+    # ToDo - mette in greetings i saluti ma non le frasi dopo (es. "friend" lo mette in body)
+
+    return
 
     # printf("-----------------------------------------------------")
 

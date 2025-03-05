@@ -1,0 +1,25 @@
+import pandas as pd
+import re
+from utils import printf
+from results_handler import get_random_state
+
+
+def preprocess_data(dataset_file, num_emails):
+    if dataset_file.startswith("nigeria"):
+        dataset_file = f"../datasets/fraudulent/Nigerian_Fraud.csv"
+
+    printf(f"[Preprocessing] Loading dataset: {dataset_file}")
+    df = pd.read_csv(dataset_file)
+    rs = get_random_state()
+
+    df = df.sample(n=num_emails, random_state=rs)
+
+    df['body'] = df['body'].apply(clean_message_text)
+
+    return df['body']
+
+
+def clean_message_text(text):
+    cleaned_text = text.strip()
+    cleaned_text = re.sub(r"[^\w\s.]", "", cleaned_text)
+    return cleaned_text.strip().lower()
