@@ -4,8 +4,11 @@
 
 ---
 
-Execution: `python pipeline.py <dataset_file> <num_emails> [--random]`
+Execution: `python pipeline.py <dataset_file> --num_emails <num_emails> [--random_state <number>]`
 - `dataset_file`: path to the CSV dataset file
 - `--num_emails`: how many emails to process, defaults to 5
 - `--random_state`: random state for the steps that use it, defaults to a random value
 
+---
+
+Example: `python ./src/pipeline.py --num_emails 15000 ./datasets/enron/enron.csv`

@@ -1,0 +1,62 @@
+[Initialization] Number of emails: 100 | Random State: 7997
+
+[Classification] Greetings:
+dear friend: 19
+dear sirmadam: 9
+dear sir: 6
+dear: 4
+dear one: 2
+dearest: 1
+i am a member of the federal government of nigeria contract award and: 1
+dear friend we offer you email addresses databases for advertisementmailing we sell databases car...: 1
+i am frank okonjo  i represent mohammed: 1
+sir: 1
+i am mrs. elena owen a citizen of bulgaria but i based in england i am married to sir francis owe...: 1
+dear prospective business partner: 1
+dear dddddddd r. rrrrr: 1
+i am mr olsom berghart a personal treasurer to mikhail khodorkovsky the richest man in russia and...: 1
+i am mr. david tungay provincial director standard bank of south africa johannesburg branch. i ha...: 1
+dear friend.: 1
+dearly beloved in christ: 1
+my name is mrs wu yung a merchant sentosa in sindapore: 1
+dearest one      on a very good day.   im happy to inform you about my success in getting those f...: 1
+dearsir: 1
+dearest beloved: 1
+my name is mr. habib waheed. i am from dubai . i have been diagnosed with: 1
+i am stevens bangura son of late mr john bangura of sierra: 1
+greetings you must be aware now that my country the republic of south africa: 1
+dear sir.: 1
+greetings: 1
+madame dera ne melika diouf.: 1
+i am applying to invest in your country. i hope that we can do this major business together i wil...: 1
+dearest we are gordon and rose wiliams of our late parents mr and mrs victor williams. our father...: 1
+dear sir  madam: 1
+i am engr. robert edmond the purchasing director of tokyo plastic inc. we wish to be in your coun...: 1
+i am a top official in charge of client accounts in equitable pci bank: 1
+hello my dear: 1
+dearest one: 1
+dear sirmadam dear friend my name is mr dennis stevensonthe  chairman of the board of directors  ...: 1
+hello dear: 1
+hello dear.: 1
+i am a staff of lloyds tsb group plc here in hong kong attached in: 1
+i am mr.patrick  james iburu son of late mr danel  ojinta iburu former: 1
+my name is .mohammed  khalifa from palestine. i worked with the regime: 1
+i am ms silvia awiloba the daughter of late mr and mrs.awiloba my father was a very wealthy cocoa...: 1
+my name is quien jelo im a single . i come from sierra leone.dear im interesting to be your frien...: 1
+i am pleased to get across to you for a profitable business proposal: 1
+dear beloved in christ: 1
+i am writting this letter with due respect and heartful of tears since we have not known or met o...: 1
+i am  dr. mrs. maryam abacha wife to the late: 1
+
+[Classification] 
+Closings:
+best regards: 16
+yours faithfully: 11
+yours sincerely: 9
+thanks: 4
+kind regards: 3
+sincerely: 2
+your sincerely: 1
+you soonest thanks: 1
+with the best regards: 1
+yours truly: 1

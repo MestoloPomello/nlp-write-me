@@ -1,7 +1,0 @@
-[Initialization] Number of emails: 50 | Random State: 2106
-
-[Evaluation] Silhouette Score: 0.008139869252714482
-[Evaluation] Top terms for each cluster in body:
-[Evaluation] Cluster 0: ees, team, lynn, blair, com
-[Evaluation] Cluster 1: com, enron, ect, aol, kaminski
-[Evaluation] Cluster 2: enron, com, cn, ou, na

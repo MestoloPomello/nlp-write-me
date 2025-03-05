@@ -1,0 +1,61 @@
+[Initialization] Number of emails: 100 | Random State: 2307
+
+[Classification] Greetings:
+dear friend: 14
+dear sir: 8
+dear sirmadam: 7
+dear: 6
+hello: 3
+sirmadam: 2
+dear beloved: 2
+dear sir i am barr.tony anthony a solicitor at law. i am the personal attorney to late eng. sange...: 1
+i am mr.mr.gailu fall  bank manager pacific trust bank fan road branchdakar senegal. i have urgen...: 1
+my name is mr frank a member of independent committee of: 1
+hi everyone: 1
+greetingsthis correspondence is unofficial and privateand it should be treated as such.i am mr.vi...: 1
+greetings: 1
+hello i am 24 years of age now i will not forget to ask you about your health i hope fine i want ...: 1
+i am sincerely proposing to you to render me your highly needed assistance in respect to safekeep...: 1
+my name is mother doris killam 63years old woman from united states of: 1
+i am the manager bill and exchange of the foreign: 1
+i am mrs fatima r. khalifa a widow to late sheik: 1
+i am mrs hilda  p. tomson the legal wife of the chief security: 1
+i am steve moore a colonel in the coalition armycountry detail will be given after introduction a...: 1
+dear partner: 1
+himself and i deposited a huge amount of money in a: 1
+my name is mr.olesito armstrong. a member of independent committee of: 1
+dear beloved one: 1
+i am a staff of lloyds tsb group plc here in hong kong attached in: 1
+hellogood day.: 1
+my name is mrs.monica martins the wife of late mr.zulu: 1
+dearest in christ pls treat with a honest mind: 1
+dear sirmadam how are you and your family today hope everyone is in good health. i am theo malobu...: 1
+i am  bakura bj zamani am a senior advocate of nigeria and i own a personal law firm here in lago...: 1
+i am constrained to contact you because of the maltreatment i am: 1
+hello dear.: 1
+hello my dear: 1
+dear sirmadam i am kimaeva lioudmila a personal secretary to mikhail khodorkovsky  the richest ma...: 1
+dear friend.: 1
+i am mr..john chukwu the chief auditor of chartered bank cb.: 1
+i am barrister david clovis esq. an english speaking senegalese solicitor  financial attorneycons...: 1
+dear associate: 1
+my name is mr yaro bamiyi the eldest son of rtd: 1
+hi: 1
+dearest in the lord: 1
+i am looking forward to a favorable reply from you soon. feel free to ask any question in this re...: 1
+dearest one: 1
+i am the chairman of the contract award committee of the gold and natural resources ministry here...: 1
+
+[Classification] --------------------------------------------------
+
+[Classification] Closings:
+best regards: 14
+yours faithfully: 10
+yours sincerely: 7
+yours truly: 6
+thanks: 3
+you soonest thanks: 1
+further details.yours faithfully: 1
+sincerely: 1
+kind regards: 1
+my kind regards: 1
