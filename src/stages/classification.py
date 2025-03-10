@@ -1,7 +1,6 @@
 import re
 import pandas as pd
-from results_handler import full_output
-from collections import Counter
+from results_handler import full_output, append_to_processed_emails
 
 greeting_pattern = r"^(hello|my name is|i am|hi|hey|dear|good (morning|afternoon|evening)|greetings|to whom it may concern|sir|madam|dear mr\.|dear mrs\.|dear ms\.|dear dr\.|dear [A-Za-z]+).*$"
 closing_pattern = r"(\n|^).*(best regards|kind regards|sincerely|thank you|thanks|cheers|yours truly|take care|with appreciation|respectfully|with gratitude|yours faithfully),?\s*$"
@@ -13,30 +12,14 @@ def classify_email_dataset(text):
     # Convert the dict in a DataFrame while only keeping the non-empty strings
     classified_text = pd.DataFrame(classified_emails.tolist())
 
-    greetings_list = [x for x in classified_text['greeting'].tolist() if x]
-    closings_list = [x for x in classified_text['closing'].tolist() if x]
-
-    # For readability, we limit the length of the greetings and closings to 100 characters if they exceed
-    greetings_count = Counter(greetings_list).most_common()
-    greetings_str = "\n".join(f"{key if len(key) <= 100 else (key[:97] + "...")}: {value}" for key, value in greetings_count)
-
-    closings_count = Counter(closings_list).most_common()
-    closings_str = "\n".join(f"{key if len(key) <= 100 else (key[:97] + "...")}: {value}" for key, value in closings_count)
+    # Append every processed email to the file
+    for _, row in classified_text.iterrows():
+        append_to_processed_emails(row)
     
     # Full output for the 3 lists (greetings, bodies and closings)
     full_output(
         "Classification",
-        "Greetings:\n" + greetings_str,
-        newline=True
-    )
-    full_output(
-        "Classification",
-        "--------------------------------------------------",
-        newline=True
-    )
-    full_output(
-        "Classification",
-        "Closings:\n" + closings_str,
+        "Email parts were saved to the processed_emails.csv file in the evaluation folder.",
         newline=True
     )
 

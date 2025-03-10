@@ -20,7 +20,7 @@ def main(dataset_file, num_emails, custom_random_state):
     printf("[Preprocessing] Started")
     email_data = preprocess_data(dataset_file, num_emails)
 
-    print("email_data\n", email_data)
+    # print("email_data\n", email_data)
     # email_bodies = extract_bodies(email_data)
 
     printf("-----------------------------------------------------")
