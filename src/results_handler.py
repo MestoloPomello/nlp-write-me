@@ -31,9 +31,11 @@ def initialize(custom_random_state, num_emails):
     with open(processed_emails_file_path, "w") as file:
         file.write("sep=,\ngreeting,body,closing\n")
 
+    global random_state
     if custom_random_state == -1:
-        global random_state
         random_state = random.randint(1, 10000)
+    else:
+        random_state = custom_random_state
 
     full_output(
         stage="Initialization",
@@ -56,9 +58,9 @@ def append_to_results(text, newline=False):
 
 
 def append_to_processed_emails(single_processed_email):
-    body_str = " ".join(single_processed_email["body"]).strip()
+    body_str = " ".join(single_processed_email["body"]).strip() or " "
     with open(processed_emails_file_path, "a", encoding="utf-8") as file:
-        str = f"{single_processed_email["greeting"]},{body_str},{single_processed_email["closing"]}\n"
+        str = f"{single_processed_email["greeting"] or " "},{body_str},{single_processed_email["closing"] or " "}\n"
         file.write(str)
 
 
