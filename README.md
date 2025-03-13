@@ -4,11 +4,12 @@
 
 ---
 
-Execution: `python pipeline.py <dataset_file> --num_emails <num_emails> [--random_state <number>]`
-- `dataset_file`: path to the CSV dataset file
+Move to the `src` directory before running the entry point.
+Execution: `python .\pipeline.py <dataset_file> --num_emails <num_emails> [--random_state <number>]`
+- `dataset_file`: path to the CSV dataset file (or a hardcoded alias)
 - `--num_emails`: how many emails to process, defaults to 5
-- `--random_state`: random state for the steps that use it, defaults to a random value
+- `--random_state`: random state for the steps that use it, defaults to a random value. Set this if you need to repeat a test on a previous group of emails
 
 ---
 
-Example: `python ./src/pipeline.py --num_emails 15000 ./datasets/enron/enron.csv`
+Example: `python .\pipeline.py fraud --num_emails 15000`

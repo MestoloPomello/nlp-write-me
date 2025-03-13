@@ -5,7 +5,7 @@ from results_handler import get_random_state
 
 
 def preprocess_data(dataset_file, num_emails):
-    if dataset_file.startswith("nigeria"):
+    if dataset_file.startswith("fraud"):
         dataset_file = f"../datasets/fraudulent/Nigerian_Fraud.csv"
 
     printf(f"[Preprocessing] Loading dataset: {dataset_file}")
