@@ -1,12 +1,13 @@
 import argparse
-from results_handler import initialize
+from results_handler import initialize, output_processed_emails
 # from stages.preprocessing_enron import preprocess_data, extract_bodies
 from stages.preprocessing_nigeria import preprocess_data
-from stages.topic_modeling import topic_modeling, assign_topics
+# from stages.OLD_topic_modeling import topic_modeling, assign_topics
 from stages.clustering import cluster_sections
 from stages.classification import classify_email_dataset
 from stages.evaluation import evaluate_clustering
 from utils import printf
+from stages.topic_modeling import run_topic_modeling
 
 
 def main(dataset_file, num_emails, custom_random_state):
@@ -24,6 +25,18 @@ def main(dataset_file, num_emails, custom_random_state):
     # email_bodies = extract_bodies(email_data)
 
     printf("-----------------------------------------------------")
+
+    # Step 2: Classification
+    printf("[Classification] Structural Parts Classification Started")
+    # results = classify_sections(vectorized_data, labels)
+    df_after_classification = classify_email_dataset(email_data["body"])    # Risultato stampato giusto
+
+    printf("-----------------------------------------------------")
+
+    # Step 3: Topic Modeling
+    df_after_tm = run_topic_modeling(df_after_classification)
+    
+    output_processed_emails(df_after_tm)
 
     # printf("[Topic Modeling] Started")
     # topics, lda, X = topic_modeling(email_bodies, n_topics=5)
@@ -44,13 +57,6 @@ def main(dataset_file, num_emails, custom_random_state):
     # results = cluster_sections(email_data)
 
     # printf("-----------------------------------------------------")
-
-    # Step 3: Classification
-    printf("[Classification] Started")
-    # results = classify_sections(vectorized_data, labels)
-    results = classify_email_dataset(email_data)
-
-    # ToDo - mette in greetings i saluti ma non le frasi dopo (es. "friend" lo mette in body)
 
     return
 

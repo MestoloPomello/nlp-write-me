@@ -16,7 +16,7 @@ def preprocess_data(dataset_file, num_emails):
 
     df['body'] = df['body'].apply(clean_message_text)
 
-    return df['body']
+    return df
 
 
 def clean_message_text(text):

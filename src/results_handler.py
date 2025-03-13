@@ -29,7 +29,7 @@ def initialize(custom_random_state, num_emails):
     global processed_emails_file_path
     processed_emails_file_path = os.path.join(evaluations_dir, folder_name, "processed_emails.csv")
     with open(processed_emails_file_path, "w") as file:
-        file.write("sep=,\ngreeting,body,closing\n")
+        file.write("sep=,\ngreeting,body,closing,topics\n")
 
     global random_state
     if custom_random_state == -1:
@@ -63,6 +63,15 @@ def append_to_processed_emails(single_processed_email):
         str = f"{single_processed_email["greeting"] or " "},{body_str},{single_processed_email["closing"] or " "}\n"
         file.write(str)
 
+
+def output_processed_emails(df):
+    with open(processed_emails_file_path, "a", encoding="utf-8") as file:
+        for index, single_processed_email in df.iterrows():
+            # body_str = " ".join(single_processed_email["body"]).strip() or " "
+            body_str = single_processed_email["body"].strip() or " "
+            str = f"{single_processed_email["greeting"] or " "},{body_str},{single_processed_email["closing"] or " "},{single_processed_email["topic"]}\n"
+            file.write(str)
+            
 
 def full_output(stage, text, newline=False):
     full_string = f"[{stage}] {text}"

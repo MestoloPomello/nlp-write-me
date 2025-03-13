@@ -2,6 +2,7 @@ import re
 import pandas as pd
 from results_handler import full_output, append_to_processed_emails
 
+
 greeting_pattern = r"^(hello|my name is|i am|hi|hey|dear|good (morning|afternoon|evening)|greetings|to whom it may concern|sir|madam|dear mr\.|dear mrs\.|dear ms\.|dear dr\.|dear [A-Za-z]+).*$"
 closing_pattern = r"(\n|^).*(best regards|kind regards|sincerely|thank you|thanks|cheers|yours truly|take care|with appreciation|respectfully|with gratitude|yours faithfully|god be with you),?\s*$"
 
@@ -13,13 +14,16 @@ def classify_email_dataset(text):
     classified_text = pd.DataFrame(classified_emails.tolist())
 
     # Append every processed email to the file
-    for _, row in classified_text.iterrows():
-        append_to_processed_emails(row)
+    # for _, row in classified_text.iterrows():
+    #     append_to_processed_emails(row)
+
+    # We keep only the interested objects in the DataFrame (greetings, bodies and closings)
+    # classified_text = classified_text[["greeting", "body", "closing"]]
     
     # Full output for the 3 lists (greetings, bodies and closings)
     full_output(
         "Classification",
-        "Email parts were saved to the processed_emails.csv file in the evaluation folder.",
+        "Email parts will be saved to the processed_emails.csv file in the evaluation folder.",
         newline=True
     )
 
