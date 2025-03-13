@@ -4,7 +4,7 @@
 
 ---
 
-Move to the `src` directory before running the entry point.
+Move to the `src` directory before running the entry point.  
 Execution: `python .\pipeline.py <dataset_file> --num_emails <num_emails> [--random_state <number>]`
 - `dataset_file`: path to the CSV dataset file (or a hardcoded alias)
 - `--num_emails`: how many emails to process, defaults to 5
