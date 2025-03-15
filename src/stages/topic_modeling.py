@@ -2,7 +2,7 @@ import re
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.decomposition import NMF, PCA
+from sklearn.decomposition import NMF
 from results_handler import full_output
 
 
