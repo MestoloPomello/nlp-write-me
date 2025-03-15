@@ -9,6 +9,7 @@ from collections import Counter
 
 stage_name = "Evaluation"
 
+# TUTTO DA RIVEDERE
 
 def evaluate_clustering(results):
     for section, result in results.items():

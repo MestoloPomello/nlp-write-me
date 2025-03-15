@@ -1,9 +1,6 @@
 import argparse
 from results_handler import initialize, output_processed_emails
-# from stages.preprocessing_enron import preprocess_data, extract_bodies
-from stages.preprocessing_nigeria import preprocess_data
-# from stages.OLD_topic_modeling import topic_modeling, assign_topics
-from stages.clustering import cluster_sections
+from stages.preprocessing import preprocess_data
 from stages.classification import classify_email_dataset
 from stages.evaluation import evaluate_clustering
 from utils import printf

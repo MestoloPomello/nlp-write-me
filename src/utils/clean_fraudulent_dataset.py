@@ -2,32 +2,28 @@ import re
 import pandas as pd
 
 def extract_email_texts(file_path, output_file):
-    """
-    Estrae SOLO il corpo del testo delle email da un file non strutturato e lo salva in un CSV.
-    Il testo delle email è separato da blocchi che iniziano con "From r ..." e finiscono con "Status: ...".
-    """
+    # Extract ONLY the email bodies from an unstructured file and save them in a CSV.
+    # The email bodies are separated by blocks that start with "From r ..." and end with "Status: ..."
     with open(file_path, "r", encoding="utf-8") as f:
         data = f.read()
 
-    # Dividere le email in base a "From r ..." (primo elemento è vuoto, lo ignoriamo)
+    # Split emails based on "From r ..." (first element is empty, ignore it)
     email_blocks = re.split(r"\nFrom r .*?\n", data)[1:]
 
     email_texts = []
 
     for email in email_blocks:
-        # Rimuove gli header (dall'inizio fino a "Status: ...")
+        # Remove headers (from start to "Status: ...")
         email_body = re.sub(r".*?\nStatus: .*\n", "", email, flags=re.DOTALL).strip()
 
-        if email_body:  # Evita di aggiungere email vuote
+        if email_body:  # To avoid appending empty emails
             email_texts.append(email_body)
 
-    # Creare un DataFrame con un ID progressivo
+    # Create a DataFrame with a progressive ID
     df = pd.DataFrame({"id": range(1, len(email_texts) + 1), "text": email_texts})
-
-    # Salvare il dataset pulito in CSV
     df.to_csv(output_file, index=False)
 
-    print(f"Dataset salvato in {output_file} con {len(email_texts)} email.")
+    print(f"Dataset saved in {output_file} with {len(email_texts)} emails.")
     return df
 
 
