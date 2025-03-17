@@ -2,7 +2,6 @@ import argparse
 from results_handler import initialize, output_processed_emails
 from stages.preprocessing import preprocess_data
 from stages.classification import classify_email_dataset
-from stages.evaluation import evaluate_clustering
 from utils import printf
 from stages.topic_modeling import run_topic_modeling
 
@@ -18,50 +17,18 @@ def main(dataset_file, num_emails, custom_random_state):
     printf("[Preprocessing] Started")
     email_data = preprocess_data(dataset_file, num_emails)
 
-    # print("email_data\n", email_data)
-    # email_bodies = extract_bodies(email_data)
-
     printf("-----------------------------------------------------")
 
     # Step 2: Classification
-    printf("[Classification] Structural Parts Classification Started")
-    # results = classify_sections(vectorized_data, labels)
-    df_after_classification = classify_email_dataset(email_data["body"])    # Risultato stampato giusto
+    printf("[Structural Classification] Started")
+    df_after_classification = classify_email_dataset(email_data["body"])
 
     printf("-----------------------------------------------------")
 
     # Step 3: Topic Modeling
+    printf("[Topic Modeling] Started")
     df_after_tm = run_topic_modeling(df_after_classification)
-    
     output_processed_emails(df_after_tm)
-
-    # printf("[Topic Modeling] Started")
-    # topics, lda, X = topic_modeling(email_bodies, n_topics=5)
-
-    # printf("[Topic Modeling] Assigning topics to emails")
-    # assigned_topics = assign_topics(lda, X)
-
-    # printf("\nTop topics identified:")
-    # for idx, topic in enumerate(topics):
-    #     printf(f"Topic {idx}: {', '.join(topic)}")
-
-    # printf("\nEmail-to-Topic Mapping:")
-    # for i, topic in enumerate(assigned_topics):
-    #     printf(f"Email {i+1}: Topic {topic}")
-
-    # Step 2: Clustering
-    # printf("[Clustering] Started")
-    # results = cluster_sections(email_data)
-
-    # printf("-----------------------------------------------------")
-
-    return
-
-    # printf("-----------------------------------------------------")
-
-    # Step 4: Evaluation
-    printf("[Evaluation] Started")
-    evaluate_clustering(results)
 
     printf("-----------------------------------------------------")
 
