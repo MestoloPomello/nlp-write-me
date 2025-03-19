@@ -22,7 +22,7 @@ def run_topic_modeling(df):
         max_features=1000,
         stop_words='english',
         # min_df=5,   # To be valid, a term has to appear in at least 5 docs
-        # max_df=0.7,  # To be valid, a term mustn't appear in less than 70% of docs
+        # max_df=0.7,  # To be valid, a term mustn't appear in more than 70% of docs
         # norm='l2'
     )
     X = vectorizer.fit_transform(df["body"])
@@ -38,10 +38,10 @@ def run_topic_modeling(df):
     # NMF (Non-negative Matrix Factorization) (test alternative to LDA)
     nmf = NMF(
         n_components=num_topics,
-        random_state=42,
-        # alpha_W=0.1,  # TODO - non va un cazzo
-        # alpha_H=0.1,
-        # l1_ratio=0.5
+        random_state=0,
+        # alpha_W=0.05,
+        # alpha_H=0.05, 
+        l1_ratio=0
     )
     nmf.fit(X)
 
