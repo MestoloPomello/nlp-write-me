@@ -17,6 +17,14 @@ def run_topic_modeling(df):
     # Preprocess email bodies
     df["body"] = df["body"].apply(preprocess_text)
 
+    average_length = df['body'].apply(lambda x: len(x.split())).mean()
+    full_output(stage="Topic Modeling", text=f"Average email length (tokens): {average_length:.2f}", newline=True)
+
+    unique_terms = set()
+    df['body'].apply(lambda x: unique_terms.update(x.split()))
+    num_unique_terms = len(unique_terms)
+    full_output(stage="Topic Modeling", text=f"Number of unique terms: {num_unique_terms}", newline=True)
+
     # Convert text in a Bag-Of-Words matrix (or TF-IDF)
     vectorizer = TfidfVectorizer(
         max_features=1000,
