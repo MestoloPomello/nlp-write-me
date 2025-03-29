@@ -41,7 +41,7 @@ def run_topic_modeling(df):
 
     num_topics = 5
 
-    # FOR REPORT: LDA gave way worse results
+    # FOR PAPER: LDA gave way worse results
 
     # NMF (Non-negative Matrix Factorization) (test alternative to LDA)
     nmf = NMF(
