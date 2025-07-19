@@ -1,0 +1,37 @@
+[Initialization] Number of emails: -1 | Random State: 6178
+
+[Structural Classification] Email parts will be saved to the processed_emails.csv file in the evaluation folder.
+
+[Topic Modeling] Average email length (tokens): 226.12
+
+[Topic Modeling] Number of unique terms: 38233
+
+[Evaluation] Coherence Score: 0.6395
+
+[Evaluation] Topic Diversity: 0.9000
+
+[Evaluation] Reconstruction Error: 50.2019
+
+[Topic Modeling] === Main terms for each topic ===
+
+[Topic Modeling] Topic 0: ministry, nigeria, payment, foreign, transaction, fund, bank, transfer, contract, account
+
+[Topic Modeling] Topic 1: son, assistance, family, late, investment, company, money, security, country, father
+
+[Topic Modeling] Topic 2: plane, department, customer, crash, unclaimed, relation, money, deceased, bank, kin
+
+[Topic Modeling] Topic 3: shall, deposit, client, provide, branch, document, mr, attorney, bank, kin
+
+[Topic Modeling] Topic 4: know, dont, life, lord, money, organization, charity, want, god, husband
+
+[Topic Modeling] === Topics distribution ===
+
+[Topic Modeling] Topic son;assistance;family;late;investment;company;money;security;country;father: 1345 email
+
+[Topic Modeling] Topic ministry;nigeria;payment;foreign;transaction;fund;bank;transfer;contract;account: 856 email
+
+[Topic Modeling] Topic shall;deposit;client;provide;branch;document;mr;attorney;bank;kin: 491 email
+
+[Topic Modeling] Topic plane;department;customer;crash;unclaimed;relation;money;deceased;bank;kin: 385 email
+
+[Topic Modeling] Topic know;dont;life;lord;money;organization;charity;want;god;husband: 255 email

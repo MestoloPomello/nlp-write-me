@@ -163,4 +163,3 @@ cython_debug/
 
 datasets/enron/
 datasets/enron_clean
-evaluations/
