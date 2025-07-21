@@ -10,6 +10,8 @@ Execution: `python ./pipeline.py <dataset_file> --num_emails <num_emails> [--ran
 - `--num_emails`: how many emails to process, defaults to 5. Use -1 for the whole dataset (suggested for the fraud one)
 - `--random_state`: random state for the steps that use it, defaults to a random value. Set this if you need to repeat a test on a previous group of emails
 
+Before the first execution, uncomment the lines 12..15 in `topic_modeling.py` in order to obtain the necessary `nltk` packages.
+
 ---
 
 Example: `python ./pipeline.py fraud --num_emails 15000`
