@@ -12,4 +12,4 @@ Execution: `python .\pipeline.py <dataset_file> --num_emails <num_emails> [--ran
 
 ---
 
-Example: `python .\pipeline.py fraud --num_emails 15000`
+Example: `python ./pipeline.py fraud --num_emails 15000`
